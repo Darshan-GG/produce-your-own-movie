@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python virtual environment
+.venv/
+
+# Scraping cache
+data_scraping/cache/
+
+# Scraping output
+data_scraping/output/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Claude Code skills
+.claude/skills/
