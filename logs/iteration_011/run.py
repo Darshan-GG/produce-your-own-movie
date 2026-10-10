@@ -169,7 +169,7 @@ result = {
     "feature_cols":      FEATURE_COLS,
     "iter9_baseline":    iter9_rmse,
     "delta_vs_iter9":    round(delta, 6),
-    "beat_iter9":        beat,
+    "beat_iter9":        bool(beat),
     "top5_features":     top5,
     "film_count_ranks":  count_ranks,
     "key_insight":       (
