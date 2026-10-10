@@ -1,0 +1,103 @@
+# Research State
+
+## Config
+- **Target**: tmdb_rating
+- **Task**: regression
+- **Metric**: rmse (lower_is_better)
+- **Time Budget**: 14400s (4h)
+- **Elapsed Compute**: 66s
+- **N Folds**: 5
+- **Data**:
+  - Train: data_scraping/output/bollywood_crew_data.csv (675 rows x 14 cols)
+  - Test: none (no held-out test set — all experiments use K-fold CV)
+  - Enriched: none
+- **ID Column**: tmdb_id
+- **Positive Rate**: N/A (regression)
+- **Kaggle Dataset Slug**: not configured — Kaggle disabled
+- **Created**: 2026-10-10T00:00:00
+
+## EDA Summary
+- 675 rows, all categorical signal — no meaningful numeric predictors after excluding vote_count/year/matched_roles
+- Target range: 2.3–8.5, mean 6.21, std 0.90; baseline RMSE (predict mean) = 0.90
+- LightGBM native categorical handling is definitively the best approach found
+- Director is #1 feature in all tree models; curated flags add genuine signal
+- Film count features hurt (collinear with native categoricals, cause overfitting)
+- Feature space appears near ceiling — further gains require ensemble (Phase 3)
+
+## Strategy & Reflections
+- BEST: LightGBM native categorical, num_leaves=31, min_child_samples=3, lr=0.05 → RMSE 0.8097
+- Native categorical (LightGBM) >> target encoding >> frequency encoding >> genre-only
+- Curated binary flags (is_curated_*) add genuine signal in all experiments
+- 675 rows is small — models converge fast (~30-55 trees with early stopping), dataset is at feature ceiling
+- Phase 3 stacking approach: Ridge meta-learner on diverse OOF predictions from Iters 5,6,8,9
+- Diverse OOF predictions available: LightGBM genre-only, XGBoost, Ridge, LightGBM native cat (x2)
+
+## Global Best
+- **Score**: 0.8097 (RMSE)
+- **Model**: LightGBM native categorical (num_leaves=31, min_child_samples=3)
+- **Iter**: 9
+- **Consecutive Failures**: 0
+- **Total Experiments**: 11
+- **Successful Experiments**: 11
+
+## Hypothesis Queue
+
+### Phase 1 (Bold Bets)
+{all completed}
+
+### Phase 2 (Fine-Tuning)
+1. XGBoost native categorical (enable_categorical=True, XGBoost 2.0+) + curated flags — for stacking diversity — est. 5min
+
+### Phase 3 (Meta-Stacking)
+1. Ridge meta-learner on OOF predictions from top-K diverse iters (5, 6, 8, 9)
+2. Shallow LightGBM stacker (max_depth=3) on OOF predictions
+
+## Experiment History (Rolling: last 10 + top 5)
+
+### Top 5 by Score
+| Iter | Phase | Model | CV Score | CV Std | Features | Duration | Key Insight |
+|------|-------|-------|----------|--------|----------|----------|-------------|
+| 9 | 2 | LightGBM native cat (nl=31, mcs=3) | 0.8097 | 0.0300 | 26 | 24s | Best config; genre+curated flags dominate importance |
+| 8 | 2 | LightGBM native cat (nl=31, mcs=5) | 0.8179 | 0.0327 | 26 | 2s | Native cat >> target encoding; min_child_samples key |
+| 5 | 1 | XGBoost target-enc+curated flags | 0.8440 | 0.0404 | 26 | 1s | XGBoost best among target-enc models |
+| 6 | 1 | Ridge freq-enc+curated flags | 0.8522 | 0.0153 | 26 | 0.1s | Lowest variance; best linear stacking base |
+| 4 | 1 | LightGBM target-enc+curated flags | 0.8572 | 0.0402 | 26 | 1s | Curated flags first proved effective |
+
+### Recent 10
+| Iter | Phase | Model | CV Score | Status | Duration | Key Insight |
+|------|-------|-------|----------|--------|----------|-------------|
+| 2 | 1 | LightGBM freq-encoded crew+genres | 0.8689 | success | 1s | Crew dominates importance; freq enc too coarse |
+| 3 | 1 | LightGBM OOF target-enc (smooth=10) | 0.8725 | success | 1s | Director #1; high fold variance |
+| 4 | 1 | LightGBM target-enc+curated flags | 0.8572 | success | 1s | Curated flags proved effective |
+| 5 | 1 | XGBoost target-enc+curated flags | 0.8440 | success | 1s | XGBoost > LightGBM on target-enc features |
+| 6 | 1 | Ridge freq-enc (alpha=10) | 0.8522 | success | 0.1s | Low variance; good stacking base |
+| 7 | 2 | XGBoost regularized (depth=3) | 0.8467 | success | 0.4s | Shallower underfits; depth=4 was optimal |
+| 8 | 2 | LightGBM native cat (mcs=5) | 0.8179 | success | 2s | Native cat breakthrough — huge improvement |
+| 9 | 2 | LightGBM native cat grid (mcs=3) | 0.8097 | success | 24s | Best single model; nl=31,mcs=3 optimal |
+| 10 | 2 | LightGBM native cat LR sweep | 0.8097 | success | 11s | LR tuning no gain; feature ceiling |
+| 11 | 2 | LightGBM native cat + film counts | 0.8229 | success | 2s | Film counts overfit; collinear with categoricals |
+
+## Completed Experiments (one-line summaries)
+- Iter 1: LightGBM genre-only → 0.8679. Genres beat mean baseline; 8/16 genres zero importance.
+- Iter 2: LightGBM freq-encoded crew → 0.8689. Crew dominates importance; freq enc collapses rare entities.
+- Iter 3: LightGBM OOF target-enc (smooth=10) → 0.8725. Director #1. High fold variance.
+- Iter 4: LightGBM target-enc+curated flags → 0.8572. Curated flags proved genuine signal.
+- Iter 5: XGBoost target-enc+curated flags → 0.8440. XGBoost > LightGBM on same features.
+- Iter 6: Ridge freq-enc+curated flags (alpha=10) → 0.8522. Lowest variance (std=0.015).
+- Iter 7: XGBoost regularized (depth=3, LR=0.03) → 0.8467. Shallower trees underfit.
+- Iter 8: LightGBM native cat (mcs=5) → 0.8179. Breakthrough — native categorical handling.
+- Iter 9: LightGBM native cat grid (nl=31, mcs=3) → 0.8097. BEST. Tight grid search confirmed.
+- Iter 10: LightGBM native cat LR sweep (0.01, 0.02) → 0.8097 still best. Feature ceiling confirmed.
+- Iter 11: LightGBM native cat + film counts → 0.8229. Film counts collinear; hurt performance.
+
+## Learnings
+- LightGBM native categorical (category dtype) beats all manual encoding by large margin (0.8097 vs 0.8440 best target-enc)
+- Director is #1 feature by gain in all tree models; curated flags rank 3rd-5th consistently
+- min_child_samples=3 better than 5 or 10; allows learning from rare crew combinations
+- num_leaves=31 optimal; wider trees (63, 127) overfit on 675-row dataset
+- lr=0.05 optimal; lower LR with more trees converges to same RMSE
+- Film count features hurt — correlated with categorical identity, cause overfitting
+- Ridge (Iter 6) has lowest fold variance (std=0.015) — best stacking base
+- XGBoost (Iter 5) has different error patterns from LightGBM — good stacking diversity
+- Feature ceiling reached: further gains require ensemble/stacking rather than new features
+- Realistic ceiling post-stacking: ~0.79-0.80 RMSE

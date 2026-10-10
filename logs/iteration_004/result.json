@@ -1,0 +1,47 @@
+{
+  "status": "success",
+  "cv_rmse": 0.857173,
+  "cv_std": 0.040197,
+  "duration_seconds": 0.9,
+  "model": "LGBMRegressor",
+  "n_features": 26,
+  "best_iterations": [
+    12,
+    28,
+    23,
+    11,
+    14
+  ],
+  "fold_rmses": [
+    0.838445,
+    0.911896,
+    0.843214,
+    0.79805,
+    0.889545
+  ],
+  "top5_features": [
+    {
+      "feature": "director",
+      "importance": 85
+    },
+    {
+      "feature": "hero",
+      "importance": 54
+    },
+    {
+      "feature": "music_composer",
+      "importance": 34
+    },
+    {
+      "feature": "heroine",
+      "importance": 25
+    },
+    {
+      "feature": "villain",
+      "importance": 24
+    }
+  ],
+  "key_insight": "OOF target encoding + 5 curated-flag features + n_estimators=500 with early stopping; curated flags add marginal but consistent signal on top of target-encoded crew values.",
+  "success_criterion_beat": true,
+  "baseline_iter1_rmse": 0.8679
+}

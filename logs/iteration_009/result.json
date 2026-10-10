@@ -1,0 +1,145 @@
+{
+  "iteration": 9,
+  "status": "success",
+  "cv_rmse": 0.809671,
+  "cv_std": 0.030024,
+  "duration_seconds": 24.22,
+  "model": "lightgbm",
+  "best_config": {
+    "num_leaves": 31,
+    "min_child_samples": 3,
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "random_state": 42,
+    "early_stopping_rounds": 50
+  },
+  "best_iterations": [
+    52,
+    44,
+    40,
+    23,
+    36
+  ],
+  "vs_iter8_rmse": 0.8179,
+  "beat_iter8": true,
+  "grid_results": [
+    {
+      "num_leaves": 31,
+      "min_child_samples": 3,
+      "cv_rmse": 0.8096710443101682,
+      "cv_std": 0.030024033806887777,
+      "best_iters": [
+        52,
+        44,
+        40,
+        23,
+        36
+      ]
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 10,
+      "cv_rmse": 0.8152700347313647,
+      "cv_std": 0.03839288235481415,
+      "best_iters": [
+        39,
+        47,
+        33,
+        26,
+        37
+      ]
+    },
+    {
+      "num_leaves": 127,
+      "min_child_samples": 10,
+      "cv_rmse": 0.8152700347313647,
+      "cv_std": 0.03839288235481415,
+      "best_iters": [
+        39,
+        47,
+        33,
+        26,
+        37
+      ]
+    },
+    {
+      "num_leaves": 31,
+      "min_child_samples": 10,
+      "cv_rmse": 0.8164117763125123,
+      "cv_std": 0.038119277165499496,
+      "best_iters": [
+        41,
+        45,
+        33,
+        21,
+        45
+      ]
+    },
+    {
+      "num_leaves": 31,
+      "min_child_samples": 5,
+      "cv_rmse": 0.8179082968802144,
+      "cv_std": 0.03265497388931624,
+      "best_iters": [
+        45,
+        45,
+        35,
+        24,
+        36
+      ]
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 5,
+      "cv_rmse": 0.8220283382228895,
+      "cv_std": 0.02965613145453494,
+      "best_iters": [
+        39,
+        42,
+        28,
+        20,
+        33
+      ]
+    },
+    {
+      "num_leaves": 127,
+      "min_child_samples": 5,
+      "cv_rmse": 0.8248782851455363,
+      "cv_std": 0.030689525350377164,
+      "best_iters": [
+        30,
+        42,
+        26,
+        16,
+        30
+      ]
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 3,
+      "cv_rmse": 0.826785223563462,
+      "cv_std": 0.03306536740012316,
+      "best_iters": [
+        25,
+        43,
+        23,
+        20,
+        26
+      ]
+    },
+    {
+      "num_leaves": 127,
+      "min_child_samples": 3,
+      "cv_rmse": 0.832141487905919,
+      "cv_std": 0.03329675854140256,
+      "best_iters": [
+        18,
+        26,
+        19,
+        12,
+        30
+      ]
+    }
+  ],
+  "key_insight": "Best config: num_leaves=31, min_child_samples=3. OOF CV RMSE=0.8097 \u2014 beats Iter 8 baseline of 0.8179."
+}

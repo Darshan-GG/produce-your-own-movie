@@ -1,0 +1,89 @@
+{
+  "status": "success",
+  "iteration": 5,
+  "model": "xgboost",
+  "cv_rmse": 0.844031,
+  "cv_std": 0.040387,
+  "fold_rmses": [
+    0.826534,
+    0.900975,
+    0.819031,
+    0.790798,
+    0.877985
+  ],
+  "duration_seconds": 0.7,
+  "n_features": 26,
+  "feature_cols": [
+    "director",
+    "hero",
+    "heroine",
+    "villain",
+    "music_composer",
+    "genre_drama",
+    "genre_comedy",
+    "genre_romance",
+    "genre_action",
+    "genre_thriller",
+    "genre_crime",
+    "genre_adventure",
+    "genre_history",
+    "genre_family",
+    "genre_horror",
+    "genre_mystery",
+    "genre_fantasy",
+    "genre_animation",
+    "genre_music",
+    "genre_war",
+    "genre_biography",
+    "is_curated_director",
+    "is_curated_hero",
+    "is_curated_heroine",
+    "is_curated_villain",
+    "is_curated_composer"
+  ],
+  "best_iterations": [
+    26,
+    18,
+    291,
+    16,
+    18
+  ],
+  "hyperparams": {
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "max_depth": 4,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "early_stopping_rounds": 50,
+    "random_state": 42
+  },
+  "top5_features": [
+    {
+      "feature": "director",
+      "importance": 0.1823885589838028
+    },
+    {
+      "feature": "music_composer",
+      "importance": 0.06988982111215591
+    },
+    {
+      "feature": "villain",
+      "importance": 0.059331368654966354
+    },
+    {
+      "feature": "is_curated_director",
+      "importance": 0.056660111993551254
+    },
+    {
+      "feature": "heroine",
+      "importance": 0.050968237221241
+    }
+  ],
+  "comparison": {
+    "iter1_lgbm_baseline": 0.8679,
+    "iter4_lgbm_best": 0.8572,
+    "beat_iter1": true,
+    "beat_iter4": true
+  },
+  "key_insight": "XGBoost (RMSE=0.8440) beats LightGBM Iter 4 (0.8572), providing strong diversity for stacking."
+}

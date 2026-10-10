@@ -1,0 +1,36 @@
+{
+  "status": "success",
+  "cv_rmse": 0.867902,
+  "cv_std": 0.022106,
+  "duration_seconds": 0.97,
+  "model": "LightGBMRegressor(n_estimators=100, learning_rate=0.1, num_leaves=31, random_state=42)",
+  "features_used": [
+    "genre_drama",
+    "genre_comedy",
+    "genre_romance",
+    "genre_action",
+    "genre_thriller",
+    "genre_crime",
+    "genre_adventure",
+    "genre_history",
+    "genre_family",
+    "genre_horror",
+    "genre_mystery",
+    "genre_fantasy",
+    "genre_animation",
+    "genre_music",
+    "genre_war",
+    "genre_biography"
+  ],
+  "n_features": 16,
+  "key_insight": "Genre-only features beat the predict-mean baseline (RMSE=0.8679 < 0.90), with genre_drama being the most predictive genre.",
+  "fold_rmses": [
+    0.829435,
+    0.886344,
+    0.892203,
+    0.867989,
+    0.862132
+  ],
+  "beat_baseline": true,
+  "baseline_rmse": 0.9
+}

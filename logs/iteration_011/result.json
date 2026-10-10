@@ -1,0 +1,104 @@
+{
+  "iteration": 11,
+  "status": "success",
+  "cv_rmse": 0.822903,
+  "cv_std": 0.039913,
+  "fold_rmses": [
+    0.77578,
+    0.846034,
+    0.846135,
+    0.77256,
+    0.869164
+  ],
+  "best_iterations": [
+    84,
+    51,
+    46,
+    23,
+    42
+  ],
+  "duration_seconds": 2.09,
+  "model": "lightgbm",
+  "n_features": 31,
+  "feature_cols": [
+    "director",
+    "hero",
+    "heroine",
+    "villain",
+    "music_composer",
+    "genre_drama",
+    "genre_comedy",
+    "genre_romance",
+    "genre_action",
+    "genre_thriller",
+    "genre_crime",
+    "genre_adventure",
+    "genre_history",
+    "genre_family",
+    "genre_horror",
+    "genre_mystery",
+    "genre_fantasy",
+    "genre_animation",
+    "genre_music",
+    "genre_war",
+    "genre_biography",
+    "is_curated_director",
+    "is_curated_hero",
+    "is_curated_heroine",
+    "is_curated_villain",
+    "is_curated_composer",
+    "n_films_director",
+    "n_films_hero",
+    "n_films_heroine",
+    "n_films_villain",
+    "n_films_composer"
+  ],
+  "iter9_baseline": 0.8097,
+  "delta_vs_iter9": 0.013203,
+  "beat_iter9": false,
+  "top5_features": [
+    {
+      "feature": "n_films_hero",
+      "importance": 994
+    },
+    {
+      "feature": "n_films_composer",
+      "importance": 964
+    },
+    {
+      "feature": "n_films_director",
+      "importance": 885
+    },
+    {
+      "feature": "n_films_heroine",
+      "importance": 778
+    },
+    {
+      "feature": "n_films_villain",
+      "importance": 486
+    }
+  ],
+  "film_count_ranks": [
+    {
+      "feature": "n_films_director",
+      "rank": 3
+    },
+    {
+      "feature": "n_films_hero",
+      "rank": 1
+    },
+    {
+      "feature": "n_films_heroine",
+      "rank": 4
+    },
+    {
+      "feature": "n_films_villain",
+      "rank": 5
+    },
+    {
+      "feature": "n_films_composer",
+      "rank": 2
+    }
+  ],
+  "key_insight": "Film-count features did not improve over Iter 9 (delta=+0.0132); counts proxy experience/exposure of crew members."
+}

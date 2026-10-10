@@ -1,0 +1,92 @@
+{
+  "status": "success",
+  "iteration": 7,
+  "model": "xgboost",
+  "cv_rmse": 0.846683,
+  "cv_std": 0.040421,
+  "fold_rmses": [
+    0.8196,
+    0.902467,
+    0.841575,
+    0.788323,
+    0.876625
+  ],
+  "duration_seconds": 0.4,
+  "n_features": 26,
+  "feature_cols": [
+    "director",
+    "hero",
+    "heroine",
+    "villain",
+    "music_composer",
+    "genre_drama",
+    "genre_comedy",
+    "genre_romance",
+    "genre_action",
+    "genre_thriller",
+    "genre_crime",
+    "genre_adventure",
+    "genre_history",
+    "genre_family",
+    "genre_horror",
+    "genre_mystery",
+    "genre_fantasy",
+    "genre_animation",
+    "genre_music",
+    "genre_war",
+    "genre_biography",
+    "is_curated_director",
+    "is_curated_hero",
+    "is_curated_heroine",
+    "is_curated_villain",
+    "is_curated_composer"
+  ],
+  "best_iterations": [
+    37,
+    40,
+    101,
+    31,
+    27
+  ],
+  "hyperparams": {
+    "n_estimators": 1000,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "subsample": 0.7,
+    "colsample_bytree": 0.7,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.0,
+    "early_stopping_rounds": 50,
+    "random_state": 42
+  },
+  "top5_features": [
+    {
+      "feature": "director",
+      "importance": 0.22874643108705794
+    },
+    {
+      "feature": "music_composer",
+      "importance": 0.0787966624214148
+    },
+    {
+      "feature": "is_curated_director",
+      "importance": 0.06634502364952548
+    },
+    {
+      "feature": "villain",
+      "importance": 0.05912794456694967
+    },
+    {
+      "feature": "hero",
+      "importance": 0.0556569374780245
+    }
+  ],
+  "comparison_to_iter5": {
+    "iter5_cv_rmse": 0.844,
+    "iter5_cv_std": 0.040387,
+    "delta_rmse": 0.002683,
+    "verdict": "worse",
+    "std_reduced": false
+  },
+  "key_insight": "Shallower trees (depth=3) + lower LR (0.03) + stronger subsampling: RMSE=0.8467 vs Iter5=0.8440 (regressed), std=0.0404 vs Iter5 std=0.0404."
+}

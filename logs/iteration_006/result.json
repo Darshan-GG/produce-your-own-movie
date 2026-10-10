@@ -1,0 +1,54 @@
+{
+  "status": "success",
+  "cv_rmse": 0.8522147975414275,
+  "cv_std": 0.015326618245500976,
+  "duration_seconds": 0.07,
+  "model": "Ridge",
+  "n_features": 26,
+  "feature_breakdown": {
+    "crew_freq_encoded": 5,
+    "genre_binary": 16,
+    "curated_flags": 5
+  },
+  "best_alpha": 10.0,
+  "all_alpha_results": {
+    "0.1": {
+      "cv_rmse": 0.8531844660524688,
+      "cv_std": 0.015395397715121883,
+      "fold_rmses": [
+        0.858856872644062,
+        0.8714720449669385,
+        0.8643464543994901,
+        0.8404032712376959,
+        0.8301491198449799
+      ]
+    },
+    "1.0": {
+      "cv_rmse": 0.853090271137053,
+      "cv_std": 0.015386565206113227,
+      "fold_rmses": [
+        0.858687186403823,
+        0.8714226701126037,
+        0.8642614666197104,
+        0.8402434552186168,
+        0.830142730343275
+      ]
+    },
+    "10.0": {
+      "cv_rmse": 0.8522147975414275,
+      "cv_std": 0.015326618245500976,
+      "fold_rmses": [
+        0.8570938315957789,
+        0.8710100992827102,
+        0.8634642055327457,
+        0.8387016098865729,
+        0.830115083508453
+      ]
+    }
+  },
+  "mean_baseline_rmse": 0.9003861465168743,
+  "improvement_vs_baseline": 0.0482,
+  "success_criterion": "RMSE < 0.90",
+  "success_criterion_met": true,
+  "key_insight": "Ridge (alpha=10.0) achieves CV RMSE=0.8522 vs mean baseline 0.9004; linear model captures 0.0482 RMSE improvement and provides diverse error patterns suitable as a stacking base learner alongside XGBoost/LightGBM."
+}

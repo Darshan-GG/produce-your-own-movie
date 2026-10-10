@@ -1,0 +1,97 @@
+{
+  "status": "below_baseline",
+  "cv_rmse": 0.87246,
+  "cv_std": 0.052959,
+  "fold_rmses": [
+    0.857687,
+    0.939675,
+    0.843459,
+    0.793616,
+    0.919817
+  ],
+  "duration_seconds": 1.2,
+  "model": "lightgbm",
+  "features_used": [
+    "director",
+    "hero",
+    "heroine",
+    "villain",
+    "music_composer",
+    "genre_drama",
+    "genre_comedy",
+    "genre_romance",
+    "genre_action",
+    "genre_thriller",
+    "genre_crime",
+    "genre_adventure",
+    "genre_history",
+    "genre_family",
+    "genre_horror",
+    "genre_mystery",
+    "genre_fantasy",
+    "genre_animation",
+    "genre_music",
+    "genre_war",
+    "genre_biography"
+  ],
+  "n_features": 21,
+  "encoding": "oof_target_encoding_bayesian_smoothing10",
+  "crew_cols_encoded": [
+    "director",
+    "hero",
+    "heroine",
+    "villain",
+    "music_composer"
+  ],
+  "genre_cols": [
+    "genre_drama",
+    "genre_comedy",
+    "genre_romance",
+    "genre_action",
+    "genre_thriller",
+    "genre_crime",
+    "genre_adventure",
+    "genre_history",
+    "genre_family",
+    "genre_horror",
+    "genre_mystery",
+    "genre_fantasy",
+    "genre_animation",
+    "genre_music",
+    "genre_war",
+    "genre_biography"
+  ],
+  "global_mean": 6.211711,
+  "smoothing": 10.0,
+  "hyperparams": {
+    "n_estimators": 100,
+    "learning_rate": 0.1,
+    "num_leaves": 31,
+    "random_state": 42
+  },
+  "baseline_rmse_iter1": 0.8679,
+  "beats_baseline": false,
+  "key_insight": "OOF target encoding (smoothing=10) achieves CV RMSE=0.8725, NOT beating Iter 1 baseline (0.8679). Director and hero target-encoded ratings are the strongest features.",
+  "top_features": [
+    {
+      "feature": "director",
+      "importance": 546
+    },
+    {
+      "feature": "music_composer",
+      "importance": 397
+    },
+    {
+      "feature": "hero",
+      "importance": 340
+    },
+    {
+      "feature": "heroine",
+      "importance": 215
+    },
+    {
+      "feature": "villain",
+      "importance": 149
+    }
+  ]
+}

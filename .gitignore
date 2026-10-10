@@ -15,3 +15,6 @@ data_scraping/output/
 
 # Claude Code skills
 .claude/skills/
+
+# CSV Files
+*.csv

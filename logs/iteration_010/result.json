@@ -1,0 +1,139 @@
+{
+  "iteration": 10,
+  "status": "success",
+  "cv_rmse": 0.8097,
+  "best_lr": 0.05,
+  "oof_lr": 0.02,
+  "lr_sweep_results": [
+    {
+      "lr": 0.01,
+      "cv_rmse": 0.8151952057703372,
+      "cv_std": 0.030154196621556644,
+      "best_iters": [
+        246,
+        279,
+        206,
+        133,
+        226
+      ]
+    },
+    {
+      "lr": 0.02,
+      "cv_rmse": 0.8138141154830646,
+      "cv_std": 0.02799995939596403,
+      "best_iters": [
+        90,
+        140,
+        101,
+        66,
+        117
+      ]
+    },
+    {
+      "lr": 0.05,
+      "cv_rmse": 0.8097,
+      "cv_std": 0.03,
+      "best_iters": [
+        52,
+        44,
+        40,
+        23,
+        36
+      ],
+      "note": "from Iter 9 \u2014 not re-run"
+    }
+  ],
+  "lr_sweep_full": [
+    {
+      "lr": 0.01,
+      "cv_rmse": 0.8151952057703372,
+      "cv_std": 0.030154196621556644,
+      "fold_rmses": [
+        0.7957722263969956,
+        0.8591356372490916,
+        0.8391019489073158,
+        0.7762285789508679,
+        0.8029481618500282
+      ],
+      "best_iters": [
+        246,
+        279,
+        206,
+        133,
+        226
+      ]
+    },
+    {
+      "lr": 0.02,
+      "cv_rmse": 0.8138141154830646,
+      "cv_std": 0.02799995939596403,
+      "fold_rmses": [
+        0.7984940153131919,
+        0.8533322515572191,
+        0.8371623948033973,
+        0.7759552879339514,
+        0.8017175092344535
+      ],
+      "best_iters": [
+        90,
+        140,
+        101,
+        66,
+        117
+      ]
+    },
+    {
+      "lr": 0.05,
+      "cv_rmse": 0.8097,
+      "cv_std": 0.03,
+      "fold_rmses": [],
+      "best_iters": [
+        52,
+        44,
+        40,
+        23,
+        36
+      ],
+      "note": "from Iter 9 \u2014 not re-run"
+    }
+  ],
+  "vs_iter9_baseline": 0.8097,
+  "beat_iter9": false,
+  "duration_seconds": 10.8,
+  "key_insight": "Lower LR roughly matches lr=0.05, suggesting diminishing returns from further LR tuning; dataset may be at its noise floor.",
+  "config": {
+    "num_leaves": 31,
+    "min_child_samples": 3,
+    "n_estimators": 2000,
+    "early_stopping_rounds": 100,
+    "n_folds": 5,
+    "feature_cols": [
+      "director",
+      "hero",
+      "heroine",
+      "villain",
+      "music_composer",
+      "genre_drama",
+      "genre_comedy",
+      "genre_romance",
+      "genre_action",
+      "genre_thriller",
+      "genre_crime",
+      "genre_adventure",
+      "genre_history",
+      "genre_family",
+      "genre_horror",
+      "genre_mystery",
+      "genre_fantasy",
+      "genre_animation",
+      "genre_music",
+      "genre_war",
+      "genre_biography",
+      "is_curated_director",
+      "is_curated_hero",
+      "is_curated_heroine",
+      "is_curated_villain",
+      "is_curated_composer"
+    ]
+  }
+}

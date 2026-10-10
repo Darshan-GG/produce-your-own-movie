@@ -1,0 +1,82 @@
+{
+  "status": "success",
+  "strategies": {
+    "best_single_iter9": 0.8096710443101682,
+    "weighted_average": 0.8090469394168064,
+    "ridge_meta_learner": 0.8003793439238404,
+    "lgbm_shallow_stacker": 0.8119437616719672
+  },
+  "best_strategy": "ridge_meta_learner",
+  "best_rmse": 0.8003793439238404,
+  "best_single_rmse": 0.8096710443101682,
+  "improvement": 0.009291700386327872,
+  "ridge_weights_per_fold": {
+    "fold_1": {
+      "lgbm_native_best": 0.24402349101347437,
+      "lgbm_native_mcs5": 0.0,
+      "xgb_native": 0.1736171367315598,
+      "xgb_target_enc": 0.000878847481509762,
+      "ridge_linear": 0.09349495104001845,
+      "lgbm_target_enc": 0.0
+    },
+    "fold_2": {
+      "lgbm_native_best": 0.269954920758903,
+      "lgbm_native_mcs5": 0.0,
+      "xgb_native": 0.1595030174658831,
+      "xgb_target_enc": 0.022070556720293812,
+      "ridge_linear": 0.03135027922460961,
+      "lgbm_target_enc": 0.0
+    },
+    "fold_3": {
+      "lgbm_native_best": 0.2876217252531205,
+      "lgbm_native_mcs5": 0.0,
+      "xgb_native": 0.15841647749378493,
+      "xgb_target_enc": 0.0,
+      "ridge_linear": 0.05866549739837703,
+      "lgbm_target_enc": 0.0
+    },
+    "fold_4": {
+      "lgbm_native_best": 0.2521706643140858,
+      "lgbm_native_mcs5": 0.026882808620445675,
+      "xgb_native": 0.15568939061831472,
+      "xgb_target_enc": 0.03029121637621581,
+      "ridge_linear": 0.08203376397246238,
+      "lgbm_target_enc": 0.0
+    },
+    "fold_5": {
+      "lgbm_native_best": 0.26369326804374255,
+      "lgbm_native_mcs5": 0.0,
+      "xgb_native": 0.1525369978371645,
+      "xgb_target_enc": 0.04183772994443297,
+      "ridge_linear": 0.021178949888036796,
+      "lgbm_target_enc": 0.0
+    }
+  },
+  "ridge_mean_weights": {
+    "lgbm_native_best": 0.26349281387666523,
+    "lgbm_native_mcs5": 0.005376561724089135,
+    "xgb_native": 0.1599526040293414,
+    "xgb_target_enc": 0.019015670104490474,
+    "ridge_linear": 0.05734468830470087,
+    "lgbm_target_enc": 0.0
+  },
+  "weighted_avg_weights": {
+    "lgbm_native_best": 0.17219052743444893,
+    "lgbm_native_mcs5": 0.17046420108041727,
+    "xgb_native": 0.1659003689477312,
+    "xgb_target_enc": 0.16519273704226695,
+    "ridge_linear": 0.16360322701674876,
+    "lgbm_target_enc": 0.16264893847838696
+  },
+  "key_insight": "ridge_meta_learner achieves RMSE 0.8004, improving by 0.0093 over the best single model (Iter 9, 0.8097), demonstrating that ensemble diversity from LightGBM, XGBoost, and Ridge base learners provides complementary signal even when individual gaps are modest.",
+  "base_model_columns": [
+    "lgbm_native_best",
+    "lgbm_native_mcs5",
+    "xgb_native",
+    "xgb_target_enc",
+    "ridge_linear",
+    "lgbm_target_enc"
+  ],
+  "n_samples": 675,
+  "timestamp": "2026-10-10T14:19:09"
+}

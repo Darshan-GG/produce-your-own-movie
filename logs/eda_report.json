@@ -1,0 +1,400 @@
+{
+  "shape": {
+    "train_rows": 675,
+    "train_cols": 14
+  },
+  "target": {
+    "name": "tmdb_rating",
+    "dtype": "float64",
+    "n_unique": 107,
+    "min": 2.3,
+    "max": 8.504,
+    "mean": 6.2117111111111125,
+    "std": 0.9010538411926294,
+    "median": 6.3
+  },
+  "columns": [
+    {
+      "name": "tmdb_id",
+      "dtype": "int64",
+      "n_unique": 675,
+      "missing_pct": 0.0,
+      "mean": 328446.9348148148,
+      "std": 340018.15488405665,
+      "min": 4157.0,
+      "max": 1582770.0,
+      "skew": 1.1116712569321359,
+      "top_values": []
+    },
+    {
+      "name": "movie_title",
+      "dtype": "object",
+      "n_unique": 673,
+      "missing_pct": 0.0,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "Love Aaj Kal",
+        "Vikram Vedha",
+        "Parinda",
+        "Meri Pyaari Bindu",
+        "Golmaal Again"
+      ]
+    },
+    {
+      "name": "year",
+      "dtype": "int64",
+      "n_unique": 38,
+      "missing_pct": 0.0,
+      "mean": 2012.2014814814816,
+      "std": 8.232399489989971,
+      "min": 1989.0,
+      "max": 2026.0,
+      "skew": -0.41308400608538753,
+      "top_values": []
+    },
+    {
+      "name": "original_language",
+      "dtype": "object",
+      "n_unique": 3,
+      "missing_pct": 0.0,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "hi",
+        "te",
+        "ta"
+      ]
+    },
+    {
+      "name": "director",
+      "dtype": "object",
+      "n_unique": 279,
+      "missing_pct": 0.0,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "Mani Ratnam",
+        "Rohit Shetty",
+        "David Dhawan",
+        "Anurag Kashyap",
+        "Priyadarshan"
+      ]
+    },
+    {
+      "name": "hero",
+      "dtype": "object",
+      "n_unique": 59,
+      "missing_pct": 16.14814814814815,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "Akshay Kumar",
+        "Shah Rukh Khan",
+        "Salman Khan",
+        "Ajay Devgn",
+        "Aamir Khan"
+      ]
+    },
+    {
+      "name": "heroine",
+      "dtype": "object",
+      "n_unique": 48,
+      "missing_pct": 40.44444444444444,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "Kareena Kapoor Khan",
+        "Katrina Kaif",
+        "Rani Mukerji",
+        "Deepika Padukone",
+        "Aishwarya Rai Bachchan"
+      ]
+    },
+    {
+      "name": "villain",
+      "dtype": "object",
+      "n_unique": 123,
+      "missing_pct": 65.18518518518519,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "Prakash Raj",
+        "Jackie Shroff",
+        "Sonu Sood",
+        "Amrish Puri",
+        "Nawazuddin Siddiqui"
+      ]
+    },
+    {
+      "name": "music_composer",
+      "dtype": "object",
+      "n_unique": 183,
+      "missing_pct": 0.0,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "A. R. Rahman",
+        "Anu Malik",
+        "Tanishk Bagchi",
+        "Shankar-Ehsaan-Loy",
+        "Vishal-Shekhar"
+      ]
+    },
+    {
+      "name": "genres",
+      "dtype": "object",
+      "n_unique": 246,
+      "missing_pct": 0.14814814814814814,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "Drama|Romance",
+        "Drama",
+        "Comedy|Drama|Romance",
+        "Comedy|Romance",
+        "Comedy|Drama"
+      ]
+    },
+    {
+      "name": "vote_count",
+      "dtype": "int64",
+      "n_unique": 228,
+      "missing_pct": 0.0,
+      "mean": 129.23407407407407,
+      "std": 252.75581105916933,
+      "min": 25.0,
+      "max": 4625.0,
+      "skew": 11.343173393124605,
+      "top_values": []
+    },
+    {
+      "name": "matched_roles",
+      "dtype": "int64",
+      "n_unique": 4,
+      "missing_pct": 0.0,
+      "mean": 2.685925925925926,
+      "std": 0.8000522018357056,
+      "min": 2.0,
+      "max": 5.0,
+      "skew": 0.8525841560693288,
+      "top_values": []
+    },
+    {
+      "name": "source",
+      "dtype": "object",
+      "n_unique": 2,
+      "missing_pct": 0.0,
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null,
+      "skew": null,
+      "top_values": [
+        "expanded",
+        "seed"
+      ]
+    }
+  ],
+  "numeric_columns": [
+    "tmdb_id",
+    "year",
+    "vote_count",
+    "matched_roles"
+  ],
+  "categorical_columns": [
+    "movie_title",
+    "original_language",
+    "director",
+    "hero",
+    "heroine",
+    "villain",
+    "music_composer",
+    "genres",
+    "source"
+  ],
+  "high_cardinality_columns": [
+    {
+      "name": "movie_title",
+      "n_unique": 673
+    },
+    {
+      "name": "director",
+      "n_unique": 279
+    },
+    {
+      "name": "hero",
+      "n_unique": 59
+    },
+    {
+      "name": "villain",
+      "n_unique": 123
+    },
+    {
+      "name": "music_composer",
+      "n_unique": 183
+    },
+    {
+      "name": "genres",
+      "n_unique": 246
+    }
+  ],
+  "constant_columns": [],
+  "duplicate_rows_pct": 0.0,
+  "null_rates": {
+    "tmdb_id": 0.0,
+    "movie_title": 0.0,
+    "year": 0.0,
+    "original_language": 0.0,
+    "director": 0.0,
+    "hero": 16.15,
+    "heroine": 40.44,
+    "villain": 65.19,
+    "music_composer": 0.0,
+    "genres": 0.15,
+    "tmdb_rating": 0.0,
+    "vote_count": 0.0,
+    "matched_roles": 0.0,
+    "source": 0.0
+  },
+  "correlations_with_target": [
+    {
+      "column": "vote_count",
+      "correlation": 0.3385
+    },
+    {
+      "column": "year",
+      "correlation": -0.072
+    },
+    {
+      "column": "matched_roles",
+      "correlation": 0.0645
+    }
+  ],
+  "genres_unique_count": 16,
+  "genres_top10": {
+    "Drama": 408,
+    "Comedy": 265,
+    "Romance": 263,
+    "Action": 258,
+    "Thriller": 162,
+    "Crime": 117,
+    "Adventure": 46,
+    "History": 42,
+    "Family": 37,
+    "Horror": 25
+  },
+  "genres_avg_per_movie": 2.53,
+  "music_composer_unique_count": 197,
+  "music_composer_top10": {
+    "A. R. Rahman": 57,
+    "Pritam": 46,
+    "Anu Malik": 44,
+    "Tanishk Bagchi": 43,
+    "Shankar-Ehsaan-Loy": 39,
+    "Vishal-Shekhar": 37,
+    "Salim-Sulaiman": 35,
+    "Sachin-Jigar": 33,
+    "Amit Trivedi": 32,
+    "Himesh Reshammiya": 24
+  },
+  "music_composer_avg_per_movie": 1.19,
+  "feature_missing": {
+    "director": 0.0,
+    "hero": 16.15,
+    "heroine": 40.44,
+    "villain": 65.19,
+    "music_composer": 0.0
+  },
+  "rating_distribution": {
+    "below_5": 56,
+    "5_to_6": 173,
+    "6_to_7": 303,
+    "7_to_8": 137,
+    "8_plus": 6
+  },
+  "vote_count_stats": {
+    "min": 25,
+    "median": 72.0,
+    "mean": 129.2,
+    "max": 4625,
+    "pct_under_50": 32.3,
+    "pct_under_100": 62.1
+  },
+  "source_distribution": {
+    "expanded": 518,
+    "seed": 157
+  },
+  "director_top10": {
+    "Mani Ratnam": 14,
+    "Rohit Shetty": 14,
+    "David Dhawan": 13,
+    "Anurag Kashyap": 13,
+    "Priyadarshan": 12,
+    "Abbas-Mustan": 11,
+    "Anees Bazmee": 10,
+    "Sanjay Leela Bhansali": 9,
+    "Imtiaz Ali": 9,
+    "Siddharth Anand": 8
+  },
+  "hero_top10": {
+    "Akshay Kumar": 67,
+    "Shah Rukh Khan": 54,
+    "Salman Khan": 45,
+    "Ajay Devgn": 41,
+    "Aamir Khan": 26,
+    "Saif Ali Khan": 25,
+    "Shahid Kapoor": 22,
+    "Hrithik Roshan": 22,
+    "Ranbir Kapoor": 19,
+    "Varun Dhawan": 17
+  },
+  "heroine_top10": {
+    "Kareena Kapoor Khan": 36,
+    "Katrina Kaif": 31,
+    "Rani Mukerji": 25,
+    "Deepika Padukone": 25,
+    "Aishwarya Rai Bachchan": 24,
+    "Priyanka Chopra Jonas": 22,
+    "Kangana Ranaut": 18,
+    "Alia Bhatt": 17,
+    "Shraddha Kapoor": 15,
+    "Kriti Sanon": 15
+  },
+  "villain_top10": {
+    "Prakash Raj": 20,
+    "Jackie Shroff": 13,
+    "Sonu Sood": 10,
+    "Amrish Puri": 8,
+    "Nawazuddin Siddiqui": 8,
+    "Saif Ali Khan": 6,
+    "John Abraham": 5,
+    "Bobby Deol": 5,
+    "Akshaye Khanna": 5,
+    "Akshay Kumar": 4
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "status": "success",
+  "cv_rmse": 0.840423,
+  "cv_std": 0.037842,
+  "duration_seconds": 0.5,
+  "model": "xgboost_native_categorical",
+  "xgboost_version": "2.1.4",
+  "best_iterations": [
+    19,
+    29,
+    60,
+    31,
+    20
+  ],
+  "fold_rmses": [
+    0.834656,
+    0.89392,
+    0.83338,
+    0.777895,
+    0.858002
+  ],
+  "n_features": 26,
+  "feature_groups": {
+    "crew_categorical": [
+      "director",
+      "hero",
+      "heroine",
+      "villain",
+      "music_composer"
+    ],
+    "genre_binary": [
+      "genre_drama",
+      "genre_comedy",
+      "genre_romance",
+      "genre_action",
+      "genre_thriller",
+      "genre_crime",
+      "genre_adventure",
+      "genre_history",
+      "genre_family",
+      "genre_horror",
+      "genre_mystery",
+      "genre_fantasy",
+      "genre_animation",
+      "genre_music",
+      "genre_war",
+      "genre_biography"
+    ],
+    "curated_flags": [
+      "is_curated_director",
+      "is_curated_hero",
+      "is_curated_heroine",
+      "is_curated_villain",
+      "is_curated_composer"
+    ]
+  },
+  "hyperparameters": {
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "max_depth": 4,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "enable_categorical": true,
+    "tree_method": "hist",
+    "early_stopping_rounds": 50
+  },
+  "key_insight": "XGBoost native categorical (enable_categorical=True) achieved CV RMSE 0.8404; diverse base learner for stacking alongside LightGBM (different categorical split logic).",
+  "success_criterion": "RMSE < 0.90",
+  "meets_criterion": true
+}

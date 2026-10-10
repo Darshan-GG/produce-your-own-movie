@@ -1,0 +1,64 @@
+{
+  "iteration": 8,
+  "status": "success",
+  "cv_rmse": 0.8179,
+  "cv_std": 0.0327,
+  "fold_rmses": [
+    0.7907,
+    0.858,
+    0.8504,
+    0.7743,
+    0.8128
+  ],
+  "best_iterations": [
+    45,
+    45,
+    35,
+    24,
+    36
+  ],
+  "duration_seconds": 1.7,
+  "model": "lightgbm",
+  "n_features": 26,
+  "feature_groups": {
+    "crew_categorical": 5,
+    "genre_binary": 16,
+    "curated_flags": 5
+  },
+  "hyperparameters": {
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 5,
+    "early_stopping_rounds": 50,
+    "random_state": 42
+  },
+  "vs_iter5_best": {
+    "iter5_rmse": 0.844,
+    "delta": -0.0261,
+    "better": true
+  },
+  "top5_importances": [
+    {
+      "feature": "genre_action",
+      "importance": 98.2
+    },
+    {
+      "feature": "genre_drama",
+      "importance": 95.2
+    },
+    {
+      "feature": "is_curated_heroine",
+      "importance": 94.8
+    },
+    {
+      "feature": "genre_romance",
+      "importance": 85.2
+    },
+    {
+      "feature": "is_curated_composer",
+      "importance": 78.8
+    }
+  ],
+  "key_insight": "LightGBM native categorical handling with min_child_samples=5 beat Iter 5 baseline; delta vs 0.8440: -0.0261. Curated flags added alongside native crew category columns."
+}
