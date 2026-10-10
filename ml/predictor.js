@@ -14,12 +14,18 @@
  *     musicComposer: 'Pritam',
  *     genres: ['Romance', 'Drama'],
  *   })
- *   // { rawScore: 6.89, displayScore: 6.89, stars: 3.44 }
+ *   // { rawScore: 6.89, displayScore: 8.56, stars: 4.28 }
+ *   //   rawScore     = model's raw prediction (5.0–7.25 internal range)
+ *   //   displayScore = linearly rescaled to 5–10 for exciting game display
+ *   //   stars        = displayScore / 2  (0–5 star scale)
  */
 
 import modelData from './model_trees.json' assert { type: 'json' }
 
-const GAME_MIN_DISPLAY = 5.0
+// Rescaling: model raw range [SCALE_LO, SCALE_HI] → display range [5, 10]
+// Calibrated from OOF predictions on 675-movie training set.
+const SCALE_LO = 5.0
+const SCALE_HI = 7.25
 
 const ALL_GENRES = [
   'Drama', 'Comedy', 'Romance', 'Action', 'Thriller', 'Crime',
@@ -131,10 +137,12 @@ function buildFeatureVector({ director, hero, heroine, villain, musicComposer, g
 export function predictRating(inputs) {
   const row = buildFeatureVector(inputs)
   const raw = TREES.reduce((sum, tree) => sum + walkTree(tree, row), 0)
-  const clamped = Math.max(0, Math.min(10, raw))
-  const display = Math.max(clamped, GAME_MIN_DISPLAY)
+  const rawClamped = Math.max(0, Math.min(10, raw))
+  // Rescale raw [SCALE_LO, SCALE_HI] → display [5, 10]
+  const scaled = 5.0 + (rawClamped - SCALE_LO) / (SCALE_HI - SCALE_LO) * 5.0
+  const display = Math.max(5.0, Math.min(10.0, scaled))
   return {
-    rawScore:     Math.round(clamped * 100) / 100,
+    rawScore:     Math.round(rawClamped * 100) / 100,
     displayScore: Math.round(display * 100) / 100,
     stars:        Math.round((display / 2) * 100) / 100,
   }

@@ -5,7 +5,8 @@ import { dirname, join } from 'path'
 const __dir = dirname(fileURLToPath(import.meta.url))
 const modelData = JSON.parse(readFileSync(join(__dir, 'model_trees.json'), 'utf8'))
 
-const GAME_MIN = 5.0
+const SCALE_LO = 5.0
+const SCALE_HI = 7.25
 const ALL_GENRES = ['Drama','Comedy','Romance','Action','Thriller','Crime','Adventure','History','Family','Horror','Mystery','Fantasy','Animation','Music','War','Biography']
 const FEATURE_NAMES = modelData.feature_names
 const CREW_FEATURES = modelData.cat_features
@@ -45,7 +46,8 @@ function predict({ director, hero, heroine, villain, musicComposer, genres }) {
   })
   const raw = TREES.reduce((s,t) => s + walkTree(t, row), 0)
   const clamped = Math.max(0, Math.min(10, raw))
-  const display = Math.max(clamped, GAME_MIN)
+  const scaled = 5.0 + (clamped - SCALE_LO) / (SCALE_HI - SCALE_LO) * 5.0
+  const display = Math.max(5.0, Math.min(10.0, scaled))
   return { rawScore: +clamped.toFixed(2), displayScore: +display.toFixed(2), stars: +(display/2).toFixed(2) }
 }
 
